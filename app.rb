@@ -33,47 +33,33 @@ post '/phonebook' do
 	redirect '/'
 end
 
-post '/update' do
-   first_name_update = params[:first_name_update]
-   first_name = params[:first_name]
-   
-   last_name_update = params[:last_name_update]
-   last_name = params[:last_name]
-   
-   street_address_update = params[:street_address_update]
-   street_address = params[:street_address]
-   
-   city_update = params[:city_update]
-   city = params[:city]
-   
-   state_update = params[:state_update]
-   state = params[:state]
+post '/update_column' do
 
-   zip_update = params[:zip_update]
-   zip = params[:zip]
+   new_data = params[:new_data]
+   old_data = params[:old_data]
+   column = params[:table_column]
 
-   cell_phone_update = params[:cell_phone_update]
-   cell_phone = params[:cell_phone]
-
-   home_phone_update = params[:home_phone_update]
-   home_phone = params[:home_phone]
-
-  
-   db.exec("UPDATE phonebook SET first_name = '#{first_name_update}' WHERE first_name = '#{first_name}' ");
-   
-
-   db.exec("UPDATE phonebook SET last_name = '#{last_name_update}' WHERE last_name = '#{last_name}' ");
-   db.exec("UPDATE phonebook SET street_address = '#{street_address_update}' WHERE street_address = '#{street_address}' ");
-
-   db.exec("UPDATE phonebook SET city = '#{city_update}' WHERE city = '#{city}' ");
-
-   db.exec("UPDATE phonebook SET state = '#{state_update}' WHERE state = '#{state}' ");
-
-   db.exec("UPDATE phonebook SET zip = '#{zip_update}' WHERE zip = '#{zip}' ");
-
-   db.exec("UPDATE phonebook SET cell_phone = '#{cell_phone_update}' WHERE cell_phone = '#{cell_phone}' ");
-
-   db.exec("UPDATE phonebook SET home_phone = '#{home_phone_update}' WHERE home_phone = '#{home_phone}' ");
-
+   case column
+   when 'col_first_name'
+   	db.exec("UPDATE phonebook SET first_name = '#{new_data}' WHERE first_name = '#{old_data}' ");
+   when 'col_last_name'
+   	db.exec("UPDATE phonebook SET last_name = '#{new_data}' WHERE last_name = '#{old_data}' ");
+   when 'col_address'
+   	db.exec("UPDATE phonebook SET street_address = '#{new_data}' WHERE street_address = '#{old_data}' ");
+   when 'col_city'
+   	db.exec("UPDATE phonebook SET city = '#{new_data}' WHERE city = '#{old_data}' ");
+   when 'col_state'
+   	db.exec("UPDATE phonebook SET state = '#{new_data}' WHERE state = '#{old_data}' ");
+   when 'col_zip'
+   	db.exec("UPDATE phonebook SET zip = '#{new_data}' WHERE zip = '#{old_data}' ");
+   when 'col_cell'
+   	db.exec("UPDATE phonebook SET cell_phone = '#{new_data}' WHERE cell_phone = '#{old_data}' ");
+   when 'col_home'
+	db.exec("UPDATE phonebook SET home_phone = '#{new_data}' WHERE home_phone = '#{old_data}' ");
+	end
    redirect '/'
+end
+post '/delete_all' do
+	db.exec("DELETE FROM column");
+	redirect '/'
 end

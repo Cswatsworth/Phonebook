@@ -18,7 +18,7 @@
 	
 	<input type="submit" value="Submit">
 	</form>
-	<table class="table">
+	<p><table class="table"></p>
        <thead>
            <tr>
                <th>First Name</th>
@@ -48,49 +48,31 @@
        </tbody>
    </table>
 
-  <form action= "/update" method= "post">
-  	Update First Name: <input type = "text" name= "first_name_update"><br>
-   	Current First Name: <input type = "text" name= "first_name"><br>
-  
-  	Update Last Name: <input type = "text" name= "last_name_update"><br>
-	Current Last Name: <input type = "text" name= "last_name"><br>
-
-   
-	Update Street Address: <input type = "text" name= "street_address_update"><br>
-   
-	Current Street Address: <input type = "text" name= "street_address"><br>
-
-	Update City To: <input type="text" name="city_update"><br>
-
-	From(City): <input type="text" name="city"><br>
-
-	Update State To: <input type="text" name="state_update"><br>
-
-	From(State): <input type="text" name="state"><br>
-
-	Update Zip To: <input type="text" name="zip_update"><br>
-
-	From(Zip): <input type="text" name="zip"><br>
-
-	Update Mobile #: <input type="text" name="cell_phone_update"><br>
-
-	From(Mobile #): <input type="text" name="cell_phone"><br>
-
-	Update Home #: <input type="text" name="home_phone_update"><br>
-
-	From(Home #): <input type="text" name="home_phone"><br>
+  <form action= "/update_column" method= "post">
+  		
+  		<select name="table_column">
 
 
+  	<option value='col_first_name'>First Name</option>
+		<option value='col_last_name'>Last Name</option>
+		<option value='col_address'>Street Address</option>
+		<option value='col_city'>City</option>
+		<option value='col_state'>State</option>
+		<option value='col_zip'>Zip</option>
+		<option value='col_cell'>Cell Number</option>
+		<option value='col_home'>Home Number</option>
+	</select>
+	<br>
 
 
+	  New Input: <input type="text" name="new_data"><br>
+	  Current Input: <input type="text" name="old_data"><br>
+	   <input type="submit" value="Update">
+	   </form>
 
-
-
-
-  <input type = "submit" value = "Upload Now">
-
-
-
+   <form action='/delete_all' method='post'>
+   	<input type = "submit" value = "Delete Data">
+   </form>
 
 
 
