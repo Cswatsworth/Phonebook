@@ -1,0 +1,19 @@
+table{
+	border-style:solid;
+	border-color:red;
+	border-width:2px;
+
+}
+
+td{
+	font-family: cursive;
+	text-align: center;
+	border:1px solid black;
+	background-color: ivory;
+}
+
+tr{ 
+background-color: gray
+
+
+}
